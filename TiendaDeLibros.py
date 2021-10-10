@@ -1,29 +1,30 @@
 #import datetime
-import libros
+import productos
 import vendedores
 import ventas
 
 lista_productos = [
-    ["1", "2", "3", "4", "5"],                                          #Producto ID
-    ['ford', 'chevrolet', 'honda', 'toyota', 'vw'],                     #Marca
-    ['mustang', 'camaro', 'civic', 'prius', 'jetta'],                   #Sub Marca
-    ["2005", "2006", "2004", "2010", "2012"],                           #Modelo
-    ["50000", "60000", "30000", "60000", "70000"],                      #Precio
-    ["2", "1", "0", "3", "2"],                                          #Existencia
-    ["06/01/2020","06/01/2020","06/01/2020","06/01/2020", "06/01/2020"] #Fecha resurtido
+    ["1", "2", "3", "4", "5", "6"],                                          #Producto ID
+    ['El psicoanalista', 'El codigo Davinci', 'Los juegos del hambre', 'Casadores de sombras', 'Cien años de soledad', '1984'],  #Titulo
+    ['John Katzenbach', 'Dan Brown', 'Suzanne Collins', 'Cassandra Clare', 'Gabriel García Marquez', 'George Orwell'], #Autor
+    ["Ediciones B", "Planeta Internacional", "RBA", "Destino", "DIANA MEXICO", "DEBOLS!LLO"],               #Editorial
+    ["Suspenso", "Misterio", "Ficcion adulto-joven", "Acción", "Realismo magico", "Ficcion distopica"],     #Genero
+    ["352", "310", "415", "452", "186", "384"],                                    #Precio
+    ["18", "19", "23", "20", "93", "14"],                                          #Existencia
+    ["06/01/2020","06/01/2020","06/01/2020","06/01/2020", "06/01/2020", "06/01/2020"]        #Fecha resurtido
 ]
 
 lista_vendedores = [
     ["1", "2", "3"],                                   #Vendedor ID
-    ['juan perez', 'mariana lopez', 'pedro gonzalez']  #Nombre
+    ['Casandra Marquez', 'Hugo Hernandez', 'Victor Martinez']  #Nombre
 ]
 
 lista_ventas = [
-    ["1", "1", "2", "3"],                                  #Vendedor ID
-    ["1", "2", "3", "5"],                                  #Producto ID
-    ["01/01/2019","16/03/2019","21/09/2019","05/01/2020"], #Fecha
-    ["1", "2", "2", "1"],                                  #Cantidad
-    ["50000", "120000", "60000", "70000"]                  #Total
+    ["1", "1", "2", "3", "2"],                                  #Vendedor ID
+    ["1", "2", "3", "5", "6"],                                  #Producto ID
+    ["01/01/2019","16/03/2019","21/09/2019","05/01/2020", "05/01/2020"], #Fecha
+    ["1", "2", "2", "1", "1"],                                  #Cantidad
+    ["352", "620", "830", "186", "384"]                         #Total
 ]
 
 # print_matriz
@@ -102,7 +103,7 @@ def reporte_ventas_articulo():
 def main():
 
     print("-" * 30)
-    print("| Bienvenido a El Auto Usado |")
+    print("| Bienvenid@ a l |")
     print("-" * 30)
 
     while True:
