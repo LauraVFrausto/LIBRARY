@@ -11,13 +11,7 @@ lista_vendedores = [
     ['Casandra Marquez', 'Hugo Hernandez', 'Victor Martinez']  #Nombre
 ]
 
-lista_ventas = [
-    ["1", "1", "2", "3", "2"],                                  #Vendedor ID
-    ["1", "2", "3", "5", "6"],                                  #Producto ID
-    ["01/01/2019","16/03/2019","21/09/2019","05/01/2020", "05/01/2020"], #Fecha
-    ["1", "2", "2", "1", "1"],                                  #Cantidad
-    ["352", "620", "830", "186", "384"]                         #Total
-]
+lista_ventas = []
 
 # print_matriz
 # matriz: la matriz que quieres desplegar en la terminal
@@ -177,6 +171,7 @@ def main():
             print_matriz(lista_productos, productos.COLUMNAS)
         elif selected == 4:
             consultar_ventas()
+            print_matriz(lista_ventas, ventas.COLUMNAS)
         elif selected == 5:
             reporte_ventas_vendedor()
         elif selected == 6:
