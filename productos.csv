@@ -1,0 +1,18 @@
+PRODUCTO_ID = 0
+TITULO = 1
+AUTOR = 2
+EDITORIAL = 3
+GENERO = 4
+PRECIO = 5
+EXISTENCIA = 6
+FECHA_RESURTIDO = 7
+
+COLUMNAS = ["PRODUCTO_ID", "TITULO", "AUTOR", "EDITORIAL", "GENERO","PRECIO", "EXISTENCIA", "FECHA_RESURTIDO"]
+1, 2, 3, 4, 5, 6
+'El psicoanalista, El codigo Davinci, Los juegos del hambre, Casadores de sombras, Cien años de soledad, 1984'
+'John Katzenbach, Dan Brown, Suzanne Collins', 'Cassandra Clare', 'Gabriel García Marquez', 'George Orwe'
+"Ediciones B", "Planeta Internacional", "RBA", "Destino", "DIANA MEXICO", "DEBOLS!LLO"
+"Suspenso", "Misterio", "Ficcion adulto-joven", "Acción", "Realismo magico", "Ficcion distopica"
+"352", "310", "415", "452", "186", "384"
+"18", "19", "23", "20", "93", "14"
+"06/01/2020","06/01/2020","06/01/2020","06/01/2020", "06/01/2020", "06/01/2020"]

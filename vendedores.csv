@@ -1,0 +1,6 @@
+VENDEDOR_ID = 0
+NOMBRE = 1
+
+COLUMNAS = ["VENDEDOR_ID", "NOMBRE"]
+1, 2, 3        
+'casandra marquez', 'hugo hernandez', 'victor martinez'
