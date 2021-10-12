@@ -82,6 +82,13 @@ def registar_articulo():
 
 def consultar_inventario():
     print('Consultar inventario')
+    nombre_libro=input('Ingrese nobre de libro: ')
+    for linea in lista_productos:
+        for elemento in linea:
+            if nombre_libro.title in elemento:
+                print('Si')
+            else:
+                print('No')
 
 def consultar_ventas():
     print("Consulta venta")
@@ -98,8 +105,48 @@ def cargarProductos():
     contenido_prod=archivo_prod.readlines()
     for line in contenido_prod:
         lista_productos.append(line.strip().split(','))
-    print(lista_productos)
     archivo_prod.close()
+
+def buscar_elemento(matriz, columna, valor):
+    if valor in matriz[columna]:
+        return matriz[columna].index(valor)
+    else:
+        return -1
+
+# obtener_id
+# matriz: la tabla en la que deseas encontrar el identificador
+# indice: el indice del elemento del que deseas encontrar el identificador o -1 si el indice es incorrecto
+def obtener_id(matriz, indice):
+    if indice < len(matriz[0]) and indice >= -len(matriz[0]):
+        return matriz[0][indice]
+    else:
+        return -1
+
+# obtener_precio
+# matriz: la tabla en la que deseas encontrar el precio
+# indice: el indice del elemento del que deseas encontrar el precio o -1 si el indice es incorrecto
+def obtener_precio(matriz, indice):
+    if indice < len(matriz[productos.PRECIO]) and indice >= -len(matriz[productos.PRECIO]):
+        return matriz[productos.PRECIO][indice]
+    else:
+        return -1
+
+#Abrir el archivo de producto y guarda en el la informacion que hay en lista_productos
+
+def guardarProductos():
+    string_content = ""
+    for lines in lista_productos:
+        for idx, element in enumerate(lines):
+            if idx == len(lines) - 1:
+                string_content += element + "\n"
+            else:
+                string_content += element + ","
+
+    string_content = string_content.strip()
+    ruta_productos = Path('archivos', 'productos.csv')
+    archivo_productos = open(ruta_productos, "w")
+    archivo_productos.write(string_content)
+    archivo_productos.close()
 
 def main():
 
@@ -110,6 +157,7 @@ def main():
     while True:
         selected = menu()
         if selected == 0:
+            guardarProductos()
             print("Gracias por su visita")
             break
         elif selected == 1:
