@@ -84,24 +84,9 @@ def consultar_inventario():
     ruta_prod=Path('archivos', 'productos.csv')
     archivo_prod=(open(ruta_prod))
     contenido_prod=archivo_prod.readline()
-    print(contenido_prod)
-    """bigger_size = []
-    for nombre in nombre_columnas:
-        bigger_size.append(len(nombre))
-    
-    for idx, fila in enumerate(matriz):
-        for element in fila:
-            if len(str(element)) > bigger_size[idx]:
-                bigger_size[idx] = len(str(element))
-
-    for i in range(len(nombre_columnas)):
-        print(nombre_columnas[i].center(bigger_size[i] + 2), end = "")
-    print()
-    
-    for i in range(len(matriz[0])):
-        for j in range(len(nombre_columnas)):
-            print(str(matriz[j][i]).title().center(bigger_size[j] + 2), end = "")
-        print()"""
+    for line in contenido_prod:
+        lista_productos.append(line.strip().split(','))
+    archivo_prod.close()
 
 def consultar_ventas():
     print("Consulta venta")
@@ -128,13 +113,10 @@ def main():
         elif selected == 2:
             registar_articulo()
         elif selected == 3:
-            #print("Rango de Columnas a Mostrar:")
-            #print("PRODUCTO_ID=0 \nTITULO=1 \nAUTOR=2 \nEDITORIAL=3 \nGENERO=4 \nPRECIO=5 \nEXISTENCIA=6 \nFECHA_RESURTIDO=7")
-            #n=int(input('Columna inicial: '))
-            #i=int(input('Columna final: '))
             consultar_inventario()
+            print_matriz(lista_productos, productos.COLUMNAS)
         elif selected == 4:
-            consultar_ventas()
+            print(consultar_ventas())
         elif selected == 5:
             reporte_ventas_vendedor()
         elif selected == 6:
