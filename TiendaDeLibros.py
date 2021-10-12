@@ -81,12 +81,7 @@ def registar_articulo():
     print("Registra artículo")
 
 def consultar_inventario():
-    ruta_prod=Path('archivos', 'productos.csv')
-    archivo_prod=(open(ruta_prod))
-    contenido_prod=archivo_prod.readline()
-    for line in contenido_prod:
-        lista_productos.append(line.strip().split(','))
-    archivo_prod.close()
+    print('Consultar inventario')
 
 def consultar_ventas():
     print("Consulta venta")
@@ -97,12 +92,21 @@ def reporte_ventas_vendedor():
 def reporte_ventas_articulo():
     print("Genera reporte")
 
+def cargarProductos():
+    ruta_prod=Path('archivos', 'productos.csv')
+    archivo_prod=(open(ruta_prod))
+    contenido_prod=archivo_prod.readlines()
+    for line in contenido_prod:
+        lista_productos.append(line.strip().split(','))
+    print(lista_productos)
+    archivo_prod.close()
+
 def main():
 
     print("-" * 30)
     print("| Bienvenid@ a l |")
     print("-" * 30)
-
+    cargarProductos()
     while True:
         selected = menu()
         if selected == 0:
