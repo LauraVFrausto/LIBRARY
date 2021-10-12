@@ -1,13 +1,3 @@
-PRODUCTO_ID = 0
-TITULO = 1
-AUTOR = 2
-EDITORIAL = 3
-GENERO = 4
-PRECIO = 5
-EXISTENCIA = 6
-FECHA_RESURTIDO = 7
-
-COLUMNAS = ["PRODUCTO_ID", "TITULO", "AUTOR", "EDITORIAL", "GENERO","PRECIO", "EXISTENCIA", "FECHA_RESURTIDO"]
 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20   #Producto ID
 El_psicoanalista,El_codigo_Davinci,Los_juegos_del_hambre,Casadores_de_sombras,Cien_años_de_soledad,1984,Percy_Jackson_Y_El_Ladron_Del_Rayo,El_Señor_de_los_Anillos,Un_Mundo_Feliz,Orgullo_y_prejucio,Crimen_y_Castigo,Los_Miserables,Ulises,Don_Quijote_de_la_Mancha,El_Retrato_de_Dorian_Grey,El_Fantasma_de_la_Opera,Trono_de_Cristal,Torre_del_Alba,El_Ultimo_Deseo,Frankenstein #Titulo
 John_Katzenbach,Dan_Brown,Suzanne_Collins,Cassandra_Clare,Gabriel_García_Marquez,George_Orwell,Rick_Riordian,J.R.R.Tolkien,Aldous_Huxley,Jane_Austen,Fiodor_Dostoyevski,Victor_Hugo,James_Joyce,Miguel_de_Cervantes,Oscar_Wilde,Gaston_Leroux,Sarah_J_Maas,Sarah_J_Maas,Andrezej_Sapkowski,Mary_Shelley #Autor

@@ -1,18 +1,10 @@
 #import datetime
+from pathlib import Path
 import productos
 import vendedores
 import ventas
 
-lista_productos = [
-    ["1", "2", "3", "4", "5", "6"],                                          #Producto ID
-    ['El psicoanalista', 'El codigo Davinci', 'Los juegos del hambre', 'Casadores de sombras', 'Cien años de soledad', '1984'],  #Titulo
-    ['John Katzenbach', 'Dan Brown', 'Suzanne Collins', 'Cassandra Clare', 'Gabriel García Marquez', 'George Orwell'], #Autor
-    ["Ediciones B", "Planeta Internacional", "RBA", "Destino", "DIANA MEXICO", "DEBOLS!LLO"],               #Editorial
-    ["Suspenso", "Misterio", "Ficcion adulto-joven", "Acción", "Realismo magico", "Ficcion distopica"],     #Genero
-    ["352", "310", "415", "452", "186", "384"],                                    #Precio
-    ["18", "19", "23", "20", "93", "14"],                                          #Existencia
-    ["06/01/2020","06/01/2020","06/01/2020","06/01/2020", "06/01/2020", "06/01/2020"]        #Fecha resurtido
-]
+lista_productos = []
 
 lista_vendedores = [
     ["1", "2", "3"],                                   #Vendedor ID
@@ -88,8 +80,12 @@ def registrar_venta():
 def registar_articulo():
     print("Registra artículo")
 
-def consultar_inventario(nombre_columnas,matriz):
-    bigger_size = []
+def consultar_inventario():
+    ruta_prod=Path('archivos', 'productos.csv')
+    archivo_prod=(open(ruta_prod))
+    contenido_prod=archivo_prod.readline()
+    print(contenido_prod)
+    """bigger_size = []
     for nombre in nombre_columnas:
         bigger_size.append(len(nombre))
     
@@ -105,7 +101,7 @@ def consultar_inventario(nombre_columnas,matriz):
     for i in range(len(matriz[0])):
         for j in range(len(nombre_columnas)):
             print(str(matriz[j][i]).title().center(bigger_size[j] + 2), end = "")
-        print()
+        print()"""
 
 def consultar_ventas():
     print("Consulta venta")
@@ -136,7 +132,7 @@ def main():
             #print("PRODUCTO_ID=0 \nTITULO=1 \nAUTOR=2 \nEDITORIAL=3 \nGENERO=4 \nPRECIO=5 \nEXISTENCIA=6 \nFECHA_RESURTIDO=7")
             #n=int(input('Columna inicial: '))
             #i=int(input('Columna final: '))
-            consultar_inventario(productos.COLUMNAS, lista_productos)
+            consultar_inventario()
         elif selected == 4:
             consultar_ventas()
         elif selected == 5:
