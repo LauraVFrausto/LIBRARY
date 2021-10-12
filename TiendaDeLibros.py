@@ -104,7 +104,6 @@ def cargarVentas():
     contenido_prod=archivo_prod.readlines()
     for line in contenido_prod:
         lista_ventas.append(line.strip().split(','))
-    print(lista_ventas)
     archivo_prod.close()
 
 def cargarProductos():
@@ -178,7 +177,6 @@ def main():
             print_matriz(lista_productos, productos.COLUMNAS)
         elif selected == 4:
             consultar_ventas()
-            print_matriz(lista_ventas, ventas.COLUMNAS)
         elif selected == 5:
             reporte_ventas_vendedor()
         elif selected == 6:
