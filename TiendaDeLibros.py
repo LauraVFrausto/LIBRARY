@@ -84,11 +84,10 @@ def consultar_inventario():
     print('Consultar inventario')
     nombre_libro=input('Ingrese nobre de libro: ')
     for linea in lista_productos:
-        for elemento in linea:
-            if nombre_libro.title in elemento:
+            if (str(nombre_libro.title()) in linea):
                 print('Si')
             else:
-                print('No')
+                print('')
 
 def consultar_ventas():
     print("Consulta venta")
@@ -98,6 +97,15 @@ def reporte_ventas_vendedor():
 
 def reporte_ventas_articulo():
     print("Genera reporte")
+
+def cargarVentas():
+    ruta_prod=Path('archivos', 'ventas.csv')
+    archivo_prod=(open(ruta_prod))
+    contenido_prod=archivo_prod.readlines()
+    for line in contenido_prod:
+        lista_ventas.append(line.strip().split(','))
+    print(lista_ventas)
+    archivo_prod.close()
 
 def cargarProductos():
     ruta_prod=Path('archivos', 'productos.csv')
@@ -154,6 +162,7 @@ def main():
     print("| Bienvenid@ a l |")
     print("-" * 30)
     cargarProductos()
+    cargarVentas()
     while True:
         selected = menu()
         if selected == 0:
@@ -168,7 +177,8 @@ def main():
             consultar_inventario()
             print_matriz(lista_productos, productos.COLUMNAS)
         elif selected == 4:
-            print(consultar_ventas())
+            consultar_ventas()
+            print_matriz(lista_ventas, ventas.COLUMNAS)
         elif selected == 5:
             reporte_ventas_vendedor()
         elif selected == 6:
