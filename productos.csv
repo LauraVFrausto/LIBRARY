@@ -8,11 +8,11 @@ EXISTENCIA = 6
 FECHA_RESURTIDO = 7
 
 COLUMNAS = ["PRODUCTO_ID", "TITULO", "AUTOR", "EDITORIAL", "GENERO","PRECIO", "EXISTENCIA", "FECHA_RESURTIDO"]
-1, 2, 3, 4, 5, 6
-'El psicoanalista, El codigo Davinci, Los juegos del hambre, Casadores de sombras, Cien años de soledad, 1984'
-'John Katzenbach, Dan Brown, Suzanne Collins', 'Cassandra Clare', 'Gabriel García Marquez', 'George Orwe'
-"Ediciones B", "Planeta Internacional", "RBA", "Destino", "DIANA MEXICO", "DEBOLS!LLO"
-"Suspenso", "Misterio", "Ficcion adulto-joven", "Acción", "Realismo magico", "Ficcion distopica"
-"352", "310", "415", "452", "186", "384"
-"18", "19", "23", "20", "93", "14"
-"06/01/2020","06/01/2020","06/01/2020","06/01/2020", "06/01/2020", "06/01/2020"]
+1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20   #Producto ID
+El_psicoanalista,El_codigo_Davinci,Los_juegos_del_hambre,Casadores_de_sombras,Cien_años_de_soledad,1984,Percy_Jackson_Y_El_Ladron_Del_Rayo,El_Señor_de_los_Anillos,Un_Mundo_Feliz,Orgullo_y_prejucio,Crimen_y_Castigo,Los_Miserables,Ulises,Don_Quijote_de_la_Mancha,El_Retrato_de_Dorian_Grey,El_Fantasma_de_la_Opera,Trono_de_Cristal,Torre_del_Alba,El_Ultimo_Deseo,Frankenstein #Titulo
+John_Katzenbach,Dan_Brown,Suzanne_Collins,Cassandra_Clare,Gabriel_García_Marquez,George_Orwell,Rick_Riordian,J.R.R.Tolkien,Aldous_Huxley,Jane_Austen,Fiodor_Dostoyevski,Victor_Hugo,James_Joyce,Miguel_de_Cervantes,Oscar_Wilde,Gaston_Leroux,Sarah_J_Maas,Sarah_J_Maas,Andrezej_Sapkowski,Mary_Shelley #Autor
+Ediciones_B,Planeta_Internacional,RBA,Destino,DIANA_MEXICO,DEBOLSILLO,Planeta_Internacional,Destino,DEBOLSILLO,Ediciones_B,Planeta_Internacional,RBA,Destino,Ediciones_B,DEBOLSILLO,Planeta_Internacional,Ediciones_B,RBA,DEBOLSILLO,DIANA_MEXICO               #Editorial
+Suspenso,Misterio,Ficcion_adulto-joven,Acción,Realismo_magico,Ficcion_distopica,Fantasia,Alta_Fantasia,Ciencia_Ficcion,Satira,Novela_Psicologica,Ficcion_Historica,Ficcion,Satira,Ficcion_Gotica,Ficcion_Gotica,Ficcion_adulto-joven,Ficcion_adulto-joven,Alta_Fantasia,Ficcion_Gotica#Genero
+352,310,415,452,186,384,245,402,156,296,325,243,198,456,298,345,278,469,356,389  #Precio
+18,19,23,20,93,14,23,45,14,23,13,10,9,18,23,14,8,3,7,26  #Existencia
+06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020,06/01/2020 #Fecha resurtido

@@ -2,5 +2,5 @@ VENDEDOR_ID = 0
 NOMBRE = 1
 
 COLUMNAS = ["VENDEDOR_ID", "NOMBRE"]
-1, 2, 3        
-'casandra marquez', 'hugo hernandez', 'victor martinez'
+1,2,3,4,5,6,7,8,9,10                                  #Vendedor ID
+Casandra_Marquez,Hugo_Hernandez,Victor_Martinez,Carlos_Marquez,Juan_Mendoza,Maria_Flores,Clarisa_Moralez,Pepe_Sandoval,Natalia_Vargaz,Linda_Cruz#Nombre
