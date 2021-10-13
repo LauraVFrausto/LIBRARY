@@ -109,15 +109,15 @@ def reporte_ventas_vendedor():
                     indice=linea.index(nombre_vendedor.title())
                     datos=[]
                     for i in lista_ventas:
-                        datos.append(i[indice])
+                        datos.append(i[indice])                    
                     for elemento in datos:
                         if datos.index(elemento)==0 or datos.index(elemento)==2:
                             print('', end="")
                         else:
                             print(elemento, end = "     ")
-                    print()
+                    print()                      
                     n=False
-                    #print( print_matriz(lista_productos, productos.COLUMNAS))
+                        #print( print_matriz(lista_productos, productos.COLUMNAS))
                 else:
                     print('Vendedor no encontrado') 
                     continue 
