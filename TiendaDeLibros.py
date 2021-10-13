@@ -104,14 +104,14 @@ def reporte_ventas_vendedor():
     while n:
         nombre_vendedor=input('Ingrese nombre del vendedor: ')
         for idx, linea in enumerate(lista_ventas):
-            if idx==1:
+            if idx==0:
                 if (str(nombre_vendedor.title()) in linea):
                     indice=linea.index(nombre_vendedor.title())
                     datos=[]
-                    for i in lista_productos:
+                    for i in lista_ventas:
                         datos.append(i[indice])
                     for elemento in datos:
-                        if datos.index(elemento)==0 or datos.index(elemento)==5:
+                        if datos.index(elemento)==0 or datos.index(elemento)==2:
                             print('', end="")
                         else:
                             print(elemento, end = "     ")
@@ -119,7 +119,7 @@ def reporte_ventas_vendedor():
                     n=False
                     #print( print_matriz(lista_productos, productos.COLUMNAS))
                 else:
-                    print('Libro no encontrado') 
+                    print('Vendedor no encontrado') 
                     continue 
 
 def reporte_ventas_articulo():
