@@ -85,7 +85,10 @@ def consultar_inventario():
                 for i in lista_productos:
                     datos.append(i[indice])
                 for elemento in datos:
-                    print(elemento, end = "     ")
+                    if datos.index(elemento)==0 or datos.index(elemento)==5:
+                        print('', end="")
+                    else:
+                        print(elemento, end = "     ")
                 print()
                 #print( print_matriz(lista_productos, productos.COLUMNAS))
             else:
