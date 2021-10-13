@@ -75,24 +75,28 @@ def registar_articulo():
     print("Registra artículo")
 
 def consultar_inventario():
-    print('Consultar inventario')
-    nombre_libro=input('Ingrese nobre de libro: ')
-    for idx, linea in enumerate(lista_productos):
-        if idx==1:
-            if (str(nombre_libro.title()) in linea):
-                indice=linea.index(nombre_libro.title())
-                datos=[]
-                for i in lista_productos:
-                    datos.append(i[indice])
-                for elemento in datos:
-                    if datos.index(elemento)==0 or datos.index(elemento)==5:
-                        print('', end="")
-                    else:
-                        print(elemento, end = "     ")
-                print()
-                #print( print_matriz(lista_productos, productos.COLUMNAS))
-            else:
-                print('Libro no encontrado')        
+    n=True
+    while n:
+        nombre_libro=input('Ingrese nombre del libro: ')
+        for idx, linea in enumerate(lista_productos):
+            if idx==1:
+                if (str(nombre_libro.title()) in linea):
+                    indice=linea.index(nombre_libro.title())
+                    datos=[]
+                    for i in lista_productos:
+                        datos.append(i[indice])
+                    for elemento in datos:
+                        if datos.index(elemento)==0 or datos.index(elemento)==5:
+                            print('', end="")
+                        else:
+                            print(elemento, end = "     ")
+                    print()
+                    n=False
+                    #print( print_matriz(lista_productos, productos.COLUMNAS))
+                else:
+                    print('Libro no encontrado') 
+                    continue 
+    
 
 def consultar_ventas():
     print("Consulta venta")
