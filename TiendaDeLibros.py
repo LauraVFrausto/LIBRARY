@@ -77,11 +77,19 @@ def registar_articulo():
 def consultar_inventario():
     print('Consultar inventario')
     nombre_libro=input('Ingrese nobre de libro: ')
-    for linea in lista_productos:
+    for idx, linea in enumerate(lista_productos):
+        if idx==1:
             if (str(nombre_libro.title()) in linea):
-                print('Si')
+                indice=linea.index(nombre_libro.title())
+                datos=[]
+                for i in lista_productos:
+                    datos.append(i[indice])
+                for elemento in datos:
+                    print(elemento, end = "     ")
+                print()
+                #print( print_matriz(lista_productos, productos.COLUMNAS))
             else:
-                print('')
+                print('Libro no encontrado')        
 
 def consultar_ventas():
     print("Consulta venta")
@@ -168,7 +176,6 @@ def main():
             registar_articulo()
         elif selected == 3:
             consultar_inventario()
-            print_matriz(lista_productos, productos.COLUMNAS)
         elif selected == 4:
             consultar_ventas()
             print_matriz(lista_ventas, ventas.COLUMNAS)
