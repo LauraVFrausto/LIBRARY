@@ -6,10 +6,7 @@ import ventas
 
 lista_productos = []
 
-lista_vendedores = [
-    ["1", "2", "3"],                                   #Vendedor ID
-    ['Casandra Marquez', 'Hugo Hernandez', 'Victor Martinez']  #Nombre
-]
+lista_vendedores = []
 
 lista_ventas = []
 
@@ -103,6 +100,27 @@ def consultar_ventas():
 
 def reporte_ventas_vendedor():
     print("Genera reporte")
+    n=True
+    while n:
+        nombre_vendedor=input('Ingrese nombre del vendedor: ')
+        for idx, linea in enumerate(lista_ventas):
+            if idx==1:
+                if (str(nombre_vendedor.title()) in linea):
+                    indice=linea.index(nombre_vendedor.title())
+                    datos=[]
+                    for i in lista_productos:
+                        datos.append(i[indice])
+                    for elemento in datos:
+                        if datos.index(elemento)==0 or datos.index(elemento)==5:
+                            print('', end="")
+                        else:
+                            print(elemento, end = "     ")
+                    print()
+                    n=False
+                    #print( print_matriz(lista_productos, productos.COLUMNAS))
+                else:
+                    print('Libro no encontrado') 
+                    continue 
 
 def reporte_ventas_articulo():
     print("Genera reporte")
@@ -114,7 +132,6 @@ def cargarvendedores():
     for line in contenido_prod:
         lista_vendedores.append(line.strip().split(','))
     archivo_prod.close()
-    print(lista_vendedores)
 
 def cargarVentas():
     ruta_prod=Path('archivos', 'ventas.csv')
