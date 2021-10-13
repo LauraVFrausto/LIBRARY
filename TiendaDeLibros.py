@@ -107,6 +107,15 @@ def reporte_ventas_vendedor():
 def reporte_ventas_articulo():
     print("Genera reporte")
 
+def cargarvendedores():
+    ruta_prod=Path('archivos', 'vendedores.csv')
+    archivo_prod=(open(ruta_prod))
+    contenido_prod=archivo_prod.readlines()
+    for line in contenido_prod:
+        lista_vendedores.append(line.strip().split(','))
+    archivo_prod.close()
+    print(lista_vendedores)
+
 def cargarVentas():
     ruta_prod=Path('archivos', 'ventas.csv')
     archivo_prod=(open(ruta_prod))
@@ -171,6 +180,7 @@ def main():
     print("-" * 30)
     cargarProductos()
     cargarVentas()
+    cargarvendedores()
     while True:
         selected = menu()
         if selected == 0:
