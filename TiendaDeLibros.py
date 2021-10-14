@@ -99,9 +99,24 @@ def consultar_ventas():
     print("Consulta venta")
 
 def reporte_ventas_vendedor():
-    nombre_vendedor=input('Ingrese nombre del vendedor: ')
     while True:
-        vendedor_idx= buscar_elemento(lista_vendedores, vendedores.NOMBRE)
+        nombre_vendedor=input('Ingrese nombre del vendedor: ')
+        vendedor_idx= buscar_elemento(lista_vendedores, vendedores.NOMBRE, nombre_vendedor.title())
+        if vendedor_idx != -1:
+            break
+        else:
+            print('El vendedor no esta regitrado')
+    vendedor_id= obtener_id(lista_vendedores, vendedor_idx)
+    ventas_vendedor = []
+    for idx, id in enumerate(lista_ventas[ventas.VENDEDOR_ID]):
+        if vendedor_id == id:
+            ventas_vendedor.append(idx)
+    print(ventas_vendedor)
+    print(lista_ventas)
+    print(lista_vendedores)
+    print(vendedor_idx)
+    print(vendedor_id)
+    #report
     """n=True
     while n:
         nombre_vendedor=input('Ingrese nombre del vendedor: ')
@@ -150,21 +165,6 @@ def cargarProductos():
     for line in contenido_prod:
         lista_productos.append(line.strip().split(','))
     archivo_prod.close()
-
-def buscar_elemento(matriz, columna, valor):
-    if valor in matriz[columna]:
-        return matriz[columna].index(valor)
-    else:
-        return -1
-
-# obtener_id
-# matriz: la tabla en la que deseas encontrar el identificador
-# indice: el indice del elemento del que deseas encontrar el identificador o -1 si el indice es incorrecto
-def obtener_id(matriz, indice):
-    if indice < len(matriz[0]) and indice >= -len(matriz[0]):
-        return matriz[0][indice]
-    else:
-        return -1
 
 # obtener_precio
 # matriz: la tabla en la que deseas encontrar el precio
