@@ -99,7 +99,6 @@ def consultar_ventas():
     print("Consulta venta")
 
 def reporte_ventas_vendedor():
-<<<<<<< HEAD
     while True:
         nombre_vendedor=input('Ingrese nombre del vendedor: ')
         vendedor_idx= buscar_elemento(lista_vendedores, vendedores.NOMBRE, nombre_vendedor.title())
@@ -121,33 +120,6 @@ def reporte_ventas_vendedor():
         total=lista_ventas[ventas.TOTAL][idx]
         report_vendedor[2].append(total)
     print_matriz(report_vendedor, ["TITULO", "CANTIDAD", "TOTAL"])
-=======
-    print("Genera reporte")
-    n=True
-    while n:
-        nombre_vendedor=input('Ingrese nombre del vendedor: ')
-        for idx, linea in enumerate(lista_ventas):
-            if idx==0:
-                if (str(nombre_vendedor.title()) in linea):
-                    indice=linea.index(nombre_vendedor.title())
-                    datos=[]
-                    for i in lista_ventas:
-                        datos.append(i[indice])
-                    for elemento in datos:
-                        if datos.index(elemento)==0 or datos.index(elemento)==2:
-                            print('', end="")
-                        else:
-                            print(elemento, end = "     ")
-                    print()
-                    n=False
-                    #print( print_matriz(lista_productos, productos.COLUMNAS))
-                else:
-                    print('Vendedor no encontrado') 
-                    continue 
-
-
-
->>>>>>> 93db178b685559f43de1806d234b16540628a3ef
 
 def reporte_ventas_articulo():
     print("Genera reporte")
