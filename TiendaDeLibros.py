@@ -99,8 +99,10 @@ def consultar_ventas():
     print("Consulta venta")
 
 def reporte_ventas_vendedor():
-    print("Genera reporte")
-    n=True
+    nombre_vendedor=input('Ingrese nombre del vendedor: ')
+    while True:
+        vendedor_idx= buscar_elemento(lista_vendedores, vendedores.NOMBRE)
+    """n=True
     while n:
         nombre_vendedor=input('Ingrese nombre del vendedor: ')
         for idx, linea in enumerate(lista_ventas):
@@ -120,7 +122,7 @@ def reporte_ventas_vendedor():
                         #print( print_matriz(lista_productos, productos.COLUMNAS))
                 else:
                     print('Vendedor no encontrado') 
-                    continue 
+                    continue """
 
 def reporte_ventas_articulo():
     print("Genera reporte")
