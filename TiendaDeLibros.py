@@ -111,33 +111,15 @@ def reporte_ventas_vendedor():
     for idx, id in enumerate(lista_ventas[ventas.VENDEDOR_ID]):
         if vendedor_id == id:
             ventas_vendedor.append(idx)
-    print(ventas_vendedor)
-    print(lista_ventas)
-    print(lista_vendedores)
-    print(vendedor_idx)
-    print(vendedor_id)
-    #report
-    """n=True
-    while n:
-        nombre_vendedor=input('Ingrese nombre del vendedor: ')
-        for idx, linea in enumerate(lista_ventas):
-            if idx==0:
-                if (str(nombre_vendedor.title()) in linea):
-                    indice=linea.index(nombre_vendedor.title())
-                    datos=[]
-                    for i in lista_ventas:
-                        datos.append(i[indice])                    
-                    for elemento in datos:
-                        if datos.index(elemento)==0 or datos.index(elemento)==2:
-                            print('', end="")
-                        else:
-                            print(elemento, end = "     ")
-                    print()                      
-                    n=False
-                        #print( print_matriz(lista_productos, productos.COLUMNAS))
-                else:
-                    print('Vendedor no encontrado') 
-                    continue """
+    report_vendedor=[[],[],[]]
+    for idx in ventas_vendedor:
+        producto_id= lista_ventas[ventas.TITULO][idx]
+        report_vendedor[0].append(producto_id)
+        cantidad=lista_ventas[ventas.CANTIDAD][idx]
+        report_vendedor[1].append(cantidad)
+        total=lista_ventas[ventas.TOTAL][idx]
+        report_vendedor[2].append(total)
+    print_matriz(report_vendedor, ["TITULO", "CANTIDAD", "TOTAL"])
 
 def reporte_ventas_articulo():
     print("Genera reporte")
