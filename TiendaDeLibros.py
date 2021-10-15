@@ -122,18 +122,28 @@ def reporte_ventas_vendedor():
     print_matriz(report_vendedor, ["TITULO", "CANTIDAD", "TOTAL"])
 
 def reporte_ventas_articulo():
-    print("Genera reporte")
-    print("Cual es el nombre del producto: ")
-    producto = input(">>")
-
     while True:
-        producto_idx = buscar_elemento(lista_productos,ventas.TITULO,producto.title)
-        if producto_idx !=-1:
+        nombre_artiuclo=input('Ingrese nombre del articulo: ')
+        articulo_idx= buscar_elemento(lista_ventas, ventas.TITULO,nombre_artiuclo.title())
+        if articulo_idx != -1:
             break
         else:
-            print(f"El producto {producto.title()} no esta registrado")
-    
-    product_id = obtener_id()
+            print('El articulo no esta regitrado')
+    ventas_articulo = []
+    for idx, id in enumerate(lista_ventas[ventas.TITULO]):
+        if articulo_idx == idx:
+            ventas_articulo.append(idx)
+    report_articulo=[[],[],[]]
+    for idx in ventas_articulo:
+        vendedor_id= lista_ventas[ventas.VENDEDOR_ID][idx]
+        vendedor=lista_vendedores[vendedores.NOMBRE][int(vendedor_id)-1]
+        report_articulo[0].append(vendedor)
+        cantidad=lista_ventas[ventas.CANTIDAD][idx]
+        report_articulo[1].append(cantidad)
+        total=lista_ventas[ventas.TOTAL][idx]
+        report_articulo[2].append(total)
+    print()
+    print_matriz(report_articulo, ["VENDEDOR", "CANTIDAD", "TOTAL"])
 
 def cargarvendedores():
     ruta_prod=Path('archivos', 'vendedores.csv')
