@@ -124,7 +124,7 @@ def reporte_ventas_vendedor():
 def reporte_ventas_articulo():
     while True:
         nombre_artiuclo=input('Ingrese nombre del articulo: ')
-        articulo_idx= buscar_elemento(lista_ventas, ventas.TITULO,nombre_artiuclo.title())
+        articulo_idx= buscar_elemento(lista_productos, ventas.TITULO,nombre_artiuclo.title())
         if articulo_idx != -1:
             break
         else:
