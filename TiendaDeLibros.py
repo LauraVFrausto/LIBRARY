@@ -1,4 +1,4 @@
-#import datetime
+from datetime import date
 from pathlib import Path
 import productos
 import vendedores
@@ -66,10 +66,129 @@ def menu():
     return int(input(">> "))
 
 def registrar_venta():
-    print("Registra venta")
+    while True:
+        nombre_vendedor=input('Nombre del vendedor: ')
+        nombre_articulo=input('Ingrese el titulo: ')
+        vendedor_idx= buscar_elemento(lista_vendedores, vendedores.NOMBRE, nombre_vendedor.title())
+        articulo_idx= buscar_elemento(lista_productos, ventas.TITULO,nombre_articulo.title())
+        if articulo_idx != -1 and nombre_vendedor!=-1:
+            break
+        else:
+            print('El vendedor o articulo no esta regitrado')
+    cantidad=int(input('Cantidad que desea adquirir: '))
+    if int(lista_productos[productos.EXISTENCIA][articulo_idx])>cantidad:
+        total=cantidad*int(lista_productos[productos.PRECIO][articulo_idx])
+        print(f'Cantidad suficiente, el total de la compra es {total}')
+        existecia_nueva=int(lista_productos[productos.EXISTENCIA][articulo_idx])-cantidad
+        lista_productos[productos.EXISTENCIA][articulo_idx]=str(existecia_nueva)
+        hoy= date.today()
+        format = hoy.strftime('%d/%m/%Y')
+        lista_ventas[ventas.VENDEDOR_ID].append(str(vendedor_idx+1)) #Cambios en ventas
+        lista_ventas[ventas.TITULO].append(nombre_articulo.title())
+        lista_ventas[ventas.FECHA].append(format)
+        lista_ventas[ventas.CANTIDAD].append(str(cantidad))
+        lista_ventas[ventas.TOTAL].append(str(total))
+        lista_productos[productos.EXISTENCIA].append(str(existecia_nueva)) #cambia la existencia del producto (-)
+        print(lista_productos)
+        
+    elif int(lista_productos[productos.EXISTENCIA][articulo_idx])<cantidad and int(lista_productos[productos.EXISTENCIA][articulo_idx])>0:
+        print(f'En existencia hay: {lista_productos[productos.EXISTENCIA][articulo_idx]}')
+        continuar_compra=input('Cantidad no suficiente, desea continuar con la compra S/N:')
+        if continuar_compra=='S':
+            print(f'El total de la compra es {int(lista_productos[productos.EXISTENCIA][articulo_idx])*int(lista_productos[productos.PRECIO][articulo_idx])}')
+            total=int(lista_productos[productos.EXISTENCIA][articulo_idx])*int(lista_productos[productos.PRECIO][articulo_idx])
+            existencia_actual=int(lista_productos[productos.EXISTENCIA][articulo_idx])
+            existecia_nueva=int(lista_productos[productos.EXISTENCIA][articulo_idx])-int(lista_productos[productos.EXISTENCIA][articulo_idx])
+            lista_productos[productos.EXISTENCIA][articulo_idx]=str(existecia_nueva)
+            hoy= date.today()
+            format = hoy.strftime('%d/%m/%Y')
+            lista_ventas[ventas.VENDEDOR_ID].append(str(vendedor_idx+1)) #Cambios en ventas
+            lista_ventas[ventas.TITULO].append(nombre_articulo.title())
+            lista_ventas[ventas.FECHA].append(format)
+            lista_ventas[ventas.CANTIDAD].append(str(existencia_actual))
+            lista_ventas[ventas.TOTAL].append(str(total))
+            lista_productos[productos.EXISTENCIA].append(str(existecia_nueva)) #cambia la existencia del producto (-)
+        else:
+            print('Compra cancelada')
+    else:
+        print(f'No hay en existencia de este producto, se estima que llegara nuevo producto el {lista_productos[productos.FECHA_RESURTIDO][articulo_idx]}')
+    
+    lista_str= ""
+    for lines in lista_productos:
+        for idx, element in enumerate(lines):
+            if idx == len(lines) - 1:
+                lista_str += str(element) + "\n"
+            else:
+                lista_str += str(element) + "," 
+
+    lista_str= lista_str.strip()
+    ruta_prod=Path("archivos","productos.csv")
+    archivo_prod=(open(ruta_prod,"w"))
+    archivo_prod.write(lista_str)
+    archivo_prod.close()
+
+    lista_st= ""
+    for lines in lista_ventas:
+        for idx, element in enumerate(lines):
+            if idx == len(lines) - 1:
+                lista_st += str(element) + "\n"
+            else:
+                lista_st += str(element) + "," 
+
+    lista_st= lista_st.strip()
+    ruta_prod=Path("archivos","ventas.csv")
+    archivo_prod=(open(ruta_prod,"w"))
+    archivo_prod.write(lista_st)
+    archivo_prod.close()
+    
 
 def registar_articulo():
     print("Registra artículo")
+    articulo = str(input("Escriba el nombre del articulo: "))
+    articulo = articulo.title()
+    cantidad = int(input("Escriba la cantidad: "))
+    lenght = int(len(lista_productos[1]))
+    if articulo in lista_productos[1]:
+        for i in range(0,lenght):
+            if  articulo in lista_productos[1][i]:
+                    idx = i       
+        numero_en_inv= int(lista_productos[6][idx])
+        nuevo_num= numero_en_inv+cantidad
+        lista_productos[6][idx] = nuevo_num
+    else:
+        print("Articulo no en inventario, desea registrarlo?")
+        respuesta = str(input(">>>"))
+        respuesta.title()
+        if respuesta == "Si":
+            nuevo_id= int(len(lista_productos[0])) +1
+            lista_productos[0].append(nuevo_id)
+            lista_productos[1].append(articulo)
+            autor=str(input("Escriba el nombre del autor: "))
+            autor.title()
+            lista_productos[2].append(autor)
+            editorial=str(input("Escriba el nombre de la editorial: "))
+            lista_productos[3].append(editorial)
+            genero=str(input("Escriba el genero del libro: "))
+            genero.title()
+            lista_productos[4].append(genero)
+            precio=str(input("Escriba el precio del libro: "))
+            lista_productos[5].append(precio)
+            lista_productos[6].append(cantidad)
+            fecha=str(input("Escriba la fecha de resurtido (dd/mm/yy): "))
+            lista_productos[7].append(fecha)
+    lista_str= ""
+    for lines in lista_productos:
+        for idx, element in enumerate(lines):
+            if idx == len(lines) - 1:
+                lista_str += str(element) + "\n"
+            else:
+                lista_str += str(element) + "," 
+
+    lista_str= lista_str.strip()
+    ruta_prod=Path("archivos","productos.csv")
+    archivo_prod=(open(ruta_prod,"w"))
+    archivo_prod.write(lista_str)
+    archivo_prod.close()
 
 def consultar_inventario():
     n=True
