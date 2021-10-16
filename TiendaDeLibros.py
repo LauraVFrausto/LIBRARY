@@ -368,9 +368,9 @@ def guardarProductos():
 
 def main():
 
-    print("-" * 30)
-    print("| Bienvenid@ a librotodo |")
-    print("-" * 30)
+    print("-" * 42)
+    print("| Bienvenid@ a la librería de Alejandría |")
+    print("-" * 42)
     cargarProductos()
     cargarVentas()
     cargarvendedores()
