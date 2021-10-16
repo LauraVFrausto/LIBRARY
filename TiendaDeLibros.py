@@ -71,7 +71,7 @@ def registrar_venta():
         nombre_articulo=input('Ingrese el titulo: ')
         vendedor_idx= buscar_elemento(lista_vendedores, vendedores.NOMBRE, nombre_vendedor.title())
         articulo_idx= buscar_elemento(lista_productos, ventas.TITULO,nombre_articulo.title())
-        if articulo_idx != -1 and nombre_vendedor!=-1:
+        if vendedor_idx!=-1 and articulo_idx != -1:
             break
         else:
             print('El vendedor o articulo no esta regitrado')
