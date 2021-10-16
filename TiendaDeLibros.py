@@ -1,4 +1,4 @@
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 from pathlib import Path
 import productos
 import vendedores
@@ -141,6 +141,8 @@ def registrar_venta():
     archivo_prod.write(lista_st)
     archivo_prod.close()
     
+    print(lista_ventas)
+    print(lista_productos)
 
 def registar_articulo():
     print("Registra artículo")
@@ -190,6 +192,8 @@ def registar_articulo():
     archivo_prod.write(lista_str)
     archivo_prod.close()
 
+    print(lista_productos)
+
 def consultar_inventario():
     n=True
     while n:
@@ -218,22 +222,37 @@ def consultar_ventas():
     print("Consulta venta")
     fecha_inicio=input('Ingrese fecha de inicio (YYYY,mm,dd): ')
     fecha_final=input('Ingrese fecha final (YYYY,mm,dd): ')
-    f_i=fecha_inicio.split('/')
+    f_i=fecha_inicio.split('/')#lista de string
     f_f=fecha_final.split('/')
-    f_inicio=[]
+    f_inicio=[]#lista de integrales
     f_final=[]
     for i in f_i:
         f_inicio.append(int(i))
     for j in f_f:
         f_final.append(int(j))
-    print(f_inicio, f_final)
-    inicio=datetime(f_inicio)
-    fin=datetime(f_final)
-    diferencia = fin - inicio
-    print (diferencia)
-    lista_fecha = [inicio]
-    lista_fecha = [fecha for fecha in (inicio, fin)]
-    print(lista_fecha)
+    inicio=datetime(f_inicio[0],f_inicio[1],f_inicio[2]) 
+    fin=datetime(f_final[0],f_final[1],f_final[2])
+
+    todas_ventas=[[],[],[],[]] #nombre vendedor, nombre producto, cantidad y total
+    for idx, elemente in enumerate(lista_ventas[2]):
+        fecha_i=elemente.split('/')
+        fecha_int=[]
+        for i in fecha_i:
+            fecha_int.append(int(i))
+
+        fecha_in=datetime(fecha_int[2],fecha_int[1],fecha_int[0])
+
+        if fecha_in>=inicio and fecha_in<=fin:
+            vendedor_id= lista_ventas[ventas.VENDEDOR_ID][idx]
+            vendedor=lista_vendedores[vendedores.NOMBRE][int(vendedor_id)-1]
+            todas_ventas[0].append(vendedor)
+            nombre_producto=lista_ventas[ventas.TITULO][idx]
+            todas_ventas[1].append(nombre_producto)
+            cantidad=lista_ventas[ventas.CANTIDAD][idx]
+            todas_ventas[2].append(cantidad)
+            total=lista_ventas[ventas.TOTAL][idx]
+            todas_ventas[3].append(total)
+    print_matriz(todas_ventas, ['VENDEDOR', 'TITULO', 'CANTIDAD', 'TOTAL'])
 
 def reporte_ventas_vendedor():
     while True:
@@ -350,7 +369,7 @@ def guardarProductos():
 def main():
 
     print("-" * 30)
-    print("| Bienvenid@ a l |")
+    print("| Bienvenid@ a librotodo |")
     print("-" * 30)
     cargarProductos()
     cargarVentas()
@@ -369,7 +388,6 @@ def main():
             consultar_inventario()
         elif selected == 4:
             consultar_ventas()
-            print_matriz(lista_ventas, ventas.COLUMNAS)
         elif selected == 5:
             reporte_ventas_vendedor()
         elif selected == 6:
