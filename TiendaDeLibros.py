@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime, timedelta
 from pathlib import Path
 import productos
 import vendedores
@@ -216,6 +216,24 @@ def consultar_inventario():
 
 def consultar_ventas():
     print("Consulta venta")
+    fecha_inicio=input('Ingrese fecha de inicio (YYYY,mm,dd): ')
+    fecha_final=input('Ingrese fecha final (YYYY,mm,dd): ')
+    f_i=fecha_inicio.split('/')
+    f_f=fecha_final.split('/')
+    f_inicio=[]
+    f_final=[]
+    for i in f_i:
+        f_inicio.append(int(i))
+    for j in f_f:
+        f_final.append(int(j))
+    print(f_inicio, f_final)
+    inicio=datetime(f_inicio)
+    fin=datetime(f_final)
+    diferencia = fin - inicio
+    print (diferencia)
+    lista_fecha = [inicio]
+    lista_fecha = [fecha for fecha in (inicio, fin)]
+    print(lista_fecha)
 
 def reporte_ventas_vendedor():
     while True:
