@@ -89,7 +89,6 @@ def registrar_venta():
         lista_ventas[ventas.CANTIDAD].append(str(cantidad))
         lista_ventas[ventas.TOTAL].append(str(total))
         lista_productos[productos.EXISTENCIA].append(str(existecia_nueva)) #cambia la existencia del producto (-)
-        print(lista_productos)
         
     elif int(lista_productos[productos.EXISTENCIA][articulo_idx])<cantidad and int(lista_productos[productos.EXISTENCIA][articulo_idx])>0:
         print(f'En existencia hay: {lista_productos[productos.EXISTENCIA][articulo_idx]}')
