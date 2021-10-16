@@ -141,8 +141,8 @@ def registrar_venta():
     archivo_prod.write(lista_st)
     archivo_prod.close()
     
-    print(lista_ventas)
-    print(lista_productos)
+    #print(lista_ventas)
+    #print(lista_productos)
 
 def registar_articulo():
     print("Registra artículo")
@@ -158,7 +158,7 @@ def registar_articulo():
         nuevo_num= numero_en_inv+cantidad
         lista_productos[6][idx] = nuevo_num
     else:
-        print("Articulo no en inventario, desea registrarlo?")
+        print("Articulo no en inventario, ¿desea registrarlo?")
         respuesta = str(input(">>>"))
         respuesta.title()
         if respuesta == "Si":
@@ -192,7 +192,7 @@ def registar_articulo():
     archivo_prod.write(lista_str)
     archivo_prod.close()
 
-    print(lista_productos)
+    #print(lista_productos)
 
 def consultar_inventario():
     n=True
