@@ -110,7 +110,7 @@ def registrar_venta():
         else:
             print('Compra cancelada')
     else:
-        print(f'No hay en existencia de este producto, se estima que llegara nuevo producto el {lista_productos[productos.FECHA_RESURTIDO][articulo_idx]}')
+        print(f'La existencia de este producto se ha agotado. Fecha de resurtido: {lista_productos[productos.FECHA_RESURTIDO][articulo_idx]}')
     
     lista_str= ""
     for lines in lista_productos:
@@ -156,6 +156,8 @@ def registar_articulo():
         numero_en_inv= int(lista_productos[6][idx])
         nuevo_num= numero_en_inv+cantidad
         lista_productos[6][idx] = nuevo_num
+        fecha=str(input("Escriba la fecha de resurtido (dd/mm/yy): "))
+        lista_productos[7][idx]=fecha
     else:
         print("Articulo no en inventario, ¿desea registrarlo?")
         respuesta = str(input(">>>"))
@@ -165,13 +167,11 @@ def registar_articulo():
             lista_productos[0].append(nuevo_id)
             lista_productos[1].append(articulo)
             autor=str(input("Escriba el nombre del autor: "))
-            autor.title()
-            lista_productos[2].append(autor)
+            lista_productos[2].append(autor.title())
             editorial=str(input("Escriba el nombre de la editorial: "))
             lista_productos[3].append(editorial)
             genero=str(input("Escriba el genero del libro: "))
-            genero.title()
-            lista_productos[4].append(genero)
+            lista_productos[4].append(genero.title())
             precio=str(input("Escriba el precio del libro: "))
             lista_productos[5].append(precio)
             lista_productos[6].append(cantidad)
