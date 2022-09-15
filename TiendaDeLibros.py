@@ -282,7 +282,7 @@ def reporte_ventas_articulo():
         articulo_idx= buscar_elemento(lista_productos, ventas.TITULO,nombre_artiuclo.title())
         if articulo_idx != -1:
             break
-        else:
+        else: 
             print('El articulo no esta regitrado')
     ventas_articulo = []
     for idx, id in enumerate(lista_ventas[ventas.TITULO]):
